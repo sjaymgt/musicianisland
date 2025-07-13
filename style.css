@@ -435,3 +435,55 @@ body {
     margin-left: auto;
   }
 }
+.new-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #ff4444;
+  color: white;
+  font-weight: bold;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(255, 68, 68, 0.7);
+  animation: badgePulse 1.5s infinite;
+  z-index: 2;
+}
+
+@keyframes badgePulse {
+  0% { transform: scale(1); box-shadow: 0 0 6px rgba(255, 50, 50, 0.4); }
+  50% { transform: scale(1.1); box-shadow: 0 0 14px rgba(255, 50, 50, 0.9); }
+  100% { transform: scale(1); box-shadow: 0 0 6px rgba(255, 50, 50, 0.4); }
+}
+.store-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.search-sort-wrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+#searchInput {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ff4444;
+  background: #330000;
+  color: #fff;
+  width: 180px;
+}
+
+#searchInput::placeholder {
+  color: #bbb;
+}
+
+#sortSelect {
+  padding: 8px 12px;
+  border: 1px solid #ff4444;
+  background: #330000;
+  color: #fff;
+  border-radius: 6px;
+}

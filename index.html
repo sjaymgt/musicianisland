@@ -37,6 +37,18 @@
   <section id="storefront" class="storefront">
     <div class="container-fluid">
       <div class="section-title">🔥 Featured Beats</div>
+      <div class="store-controls">
+  <div class="search-sort-wrapper">
+    <input type="text" id="searchInput" placeholder="Search beats..." />
+    <select id="sortSelect">
+      <option value="createdAt">Newest</option>
+      <option value="price">Price</option>
+      <option value="title">Name</option>
+    </select>
+  </div>
+</div>
+
+
       <div class="beat-grid" id="beat-grid">
         <!-- Dynamically loaded beats will be inserted here -->
       </div>

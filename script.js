@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 // ✅ Firebase config
 const firebaseConfig = {
@@ -32,20 +32,39 @@ document.getElementById('menu-toggle')?.addEventListener('click', () => {
 });
 
 // 🚀 Load Beats from Firestore
-async function loadBeats() {
+async function loadBeats(sortBy = 'createdAt', searchQuery = '') {
   const beatGrid = document.querySelector('.beat-grid');
-  const querySnapshot = await getDocs(collection(db, "Beats"));
+  beatGrid.innerHTML = '';
+
+  const beatsRef = collection(db, "Beats");
+  const q = query(beatsRef, orderBy(sortBy, sortBy === 'title' ? 'asc' : 'desc'));
+  const querySnapshot = await getDocs(q);
 
   querySnapshot.forEach((doc) => {
     const beat = doc.data();
+
+    // 🔍 Filter by search query
+    const matchText = (beat.title + " " + beat.producer).toLowerCase();
+    if (!matchText.includes(searchQuery.toLowerCase())) return;
+
     const id = beatIdCounter++;
     const waveformId = `waveform-${id}`;
+    let isNew = false;
 
-    // 🧠 Create card
+    if (beat.createdAt?.toDate) {
+      const uploadedDate = beat.createdAt.toDate();
+      const now = new Date();
+      const diffDays = (now - uploadedDate) / (1000 * 60 * 60 * 24);
+      isNew = diffDays <= 7;
+    }
+
+    const newBadge = isNew ? `<div class="new-badge">🆕 NEW</div>` : "";
+
     const card = document.createElement('div');
     card.className = 'beat-card';
     card.innerHTML = `
       <div class="beat-thumbnail" data-id="${id}">
+        ${newBadge}
         <img src="${beat.imageUrl}" alt="${beat.title} Cover" class="beat-image" />
         <div class="play-overlay">
           <img src="https://pngimg.com/d/youtube_button_PNG34.png" alt="Play Icon" />
@@ -68,11 +87,10 @@ async function loadBeats() {
     `;
 
     beatGrid.appendChild(card);
-
-    // 🎶 Setup waveform
     setupPlayer(id, beat.fileUrl, waveformId);
   });
 }
+
 
 // 🌀 Setup WaveSurfer per track
 function setupPlayer(id, fileUrl, containerId) {
@@ -151,3 +169,14 @@ function togglePlay(id) {
 
 // Start
 loadBeats();
+
+const sortSelect = document.getElementById("sortSelect");
+const searchInput = document.getElementById("searchInput");
+
+sortSelect.addEventListener("change", () => {
+  loadBeats(sortSelect.value, searchInput.value);
+});
+
+searchInput.addEventListener("input", () => {
+  loadBeats(sortSelect.value, searchInput.value);
+});
