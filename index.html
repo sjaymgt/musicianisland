@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MusicianIsland</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- 🌟 Header -->
+  <header class="header">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="left-header">
+          <div class="menu-toggle" id="menu-toggle">☰</div>
+          <div class="logo">Musician<span>Island</span></div>
+        </div>
+
+        <nav class="nav" id="mobile-nav">
+          <a href="#">Beats</a>
+          <a href="#">Licenses</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </nav>
+
+        <div class="actions">
+          <a href="#" class="login">Login</a>
+          <a href="#" class="cart">🛒</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 🎧 Storefront Section -->
+  <section id="storefront" class="storefront">
+    <div class="container-fluid">
+      <div class="section-title">🔥 Featured Beats</div>
+      <div class="beat-grid" id="beat-grid">
+        <!-- Dynamically loaded beats will be inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 🎛 Scripts -->
+  <script src="https://unpkg.com/wavesurfer.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

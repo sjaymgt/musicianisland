@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Upload Beat</title>
+  <link rel="stylesheet" href="admin.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <h1>🎵 Upload Beat to MusicianIsland</h1>
+
+  <form id="uploadForm">
+  <input type="text" id="title" placeholder="Beat Title" required />
+  <input type="text" id="producer" placeholder="Producer" required />
+  <input type="number" id="price" placeholder="Price" step="0.01" required />
+  <input type="file" id="beatFile" accept="audio/*" required />
+  <input type="file" id="coverImage"  accept="image/*" required />
+  <button type="submit">Upload</button>
+  <p id="status"></p>
+</form>
+
+
+  <div id="status"></div>
+
+  <script src="admin.js" type="module"></script>
+</body>
+</html>
