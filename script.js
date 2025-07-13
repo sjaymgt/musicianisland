@@ -70,7 +70,7 @@ async function loadBeats() {
     beatGrid.appendChild(card);
 
     // 🎶 Setup waveform
-    setupPlayer(id, beat.beatUrl, waveformId);
+    setupPlayer(id, beat.fileUrl, waveformId);
   });
 }
 
