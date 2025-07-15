@@ -16,7 +16,6 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-const signinBtn = document.getElementById("signinBtn");
 const signupBtn = document.getElementById("signupBtn");
   const userAvatar = document.getElementById("userAvatar");
 
@@ -32,11 +31,9 @@ const signupBtn = document.getElementById("signupBtn");
 
       userAvatar.src = imageUrl;
       userAvatar.style.display = "inline-block";
-      signinBtn.style.display = "none";
       signupBtn.style.display = "none";
     } else {
       // ❌ Not logged in
-      signinBtn.style.display = "inline-block";
       signupBtn.style.display = "inline-block";
       userAvatar.style.display = "none";
     }
