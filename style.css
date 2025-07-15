@@ -569,13 +569,6 @@ body {
   margin-right: 1rem;
 }
 
-@media (max-width: 768px) {
-  .store-controls {
-  justify-content: center;
-  margin-right: 0px;
-  max-width: 100%;
-}
-}
 
 .search-sort-wrapper {
   display: flex;
@@ -610,6 +603,28 @@ body {
   color: #fff;
   border-radius: 6px;
 }
+
+@media (max-width: 768px) {
+  .store-controls {
+  justify-content: center;
+  margin-right: 0px;
+  max-width: 100%;
+}
+
+#searchInput {
+  width: 140px;
+  font-size: 0.7rem;
+}
+
+#sortSelect {
+  font-size: 0.7rem;
+}
+
+#genreSelect {
+  font-size: 0.7rem;
+}
+}
+
 .wave-loading {
   width: 32px;
   height: 32px;
