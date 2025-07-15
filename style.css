@@ -154,8 +154,8 @@ body {
 .beat-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 2rem;
-  margin: auto;
+  gap: 0.5rem;
+  margin: 5px;
   justify-content: start; /* aligns grid items to the left */
 }
 
@@ -174,7 +174,8 @@ body {
 @media (max-width: 768px) {
   .beat-grid {
     grid-template-columns: repeat(2, 1fr);
-    margin: auto;
+    margin: 5px;
+    gap: 0.5rem;
     justify-content: start; /* center the grid */
   }
 
@@ -185,9 +186,11 @@ body {
   
 }
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
   .beat-grid {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    margin: auto;
+    justify-content: start;
   }
 }
 .beat-card:hover {
@@ -201,6 +204,7 @@ body {
   color: #fff;
 }
 
+
 .beat-info p {
   margin: 0.3rem 0;
   color: #aaa;
@@ -211,6 +215,23 @@ body {
   color: chartreuse;
   font-weight: 600;
 }
+
+@media (max-width: 768px) {
+  .beat-info h3 {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.beat-info span {
+  font-size: 0.8rem;
+}
+
+.beat-info p {
+  margin: 0;
+  font-size: 0.7rem;
+}
+}
+
 
 .beat-actions {
   margin-top: 1rem;
@@ -529,15 +550,36 @@ body {
   50% { transform: scale(1.1); box-shadow: 0 0 14px rgba(255, 50, 50, 0.9); }
   100% { transform: scale(1); box-shadow: 0 0 6px rgba(255, 50, 50, 0.4); }
 }
+
+@media (max-width: 768px) {
+
+.new-badge {
+  font-size: 0.45rem;
+}
+
+
+}
+
+
+
 .store-controls {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 1.5rem;
+  margin-right: 1rem;
+}
+
+@media (max-width: 768px) {
+  .store-controls {
+  justify-content: center;
+  margin-right: 0px;
+  max-width: 100%;
+}
 }
 
 .search-sort-wrapper {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   align-items: center;
 }
 
