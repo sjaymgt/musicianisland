@@ -174,13 +174,15 @@ body {
 @media (max-width: 768px) {
   .beat-grid {
     grid-template-columns: repeat(2, 1fr);
-    justify-content: center; /* center the grid */
+    margin: auto;
+    justify-content: start; /* center the grid */
   }
 
   .beat-card {
-    max-width: none; /* allow cards to stretch evenly */
-    width: 80%;
+    max-width: none; 
   }
+
+  
 }
 
 @media (max-width: 360px) {
@@ -250,6 +252,25 @@ body {
 .cart-btn:hover {
   background: #ff6666;
 }
+@media (max-width: 768px) {
+.play-btn {
+  background: transparent;
+  color: #ff4444;
+  font-size: 0.6rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid #ff4444;
+  border-radius: 4px;
+}
+
+.cart-btn {
+  font-size: 0.6rem;
+}
+
+}
+
+
+
+
 .waveform {
   width: 100%;
   height: 35px;
