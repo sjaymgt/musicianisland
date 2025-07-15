@@ -13,24 +13,44 @@
   <h1>🎵 Upload Beat to MusicianIsland</h1>
 
   <form id="uploadForm">
-  <label for="title">Beat Title:</label>
+  <h2>Upload New Beat</h2>
+
+  <label for="title">Title:</label>
   <input type="text" id="title" required />
 
-  <label for="producer">Producer Name:</label>
+  <label for="producer">Producer:</label>
   <input type="text" id="producer" required />
 
   <label for="price">Price ($):</label>
-  <input type="number" id="price" required />
+  <input type="number" id="price" required min="0" />
 
-  <label for="beatUrl">Beat File URL (from Vercel):</label>
-  <input type="text" id="beatUrl" required placeholder="https://your-domain.vercel.app/path/to/beat.mp3" />
+  <label for="imageUrl">Image URL:</label>
+  <input type="text" id="imageUrl" placeholder="https://..." required />
 
-  <label for="imageUrl">Cover Image URL (from Vercel):</label>
-  <input type="text" id="imageUrl" required placeholder="https://your-domain.vercel.app/path/to/image.jpg" />
+  <label for="fileUrl">Audio File URL:</label>
+  <input type="text" id="fileUrl" placeholder="https://..." required />
 
-  <button type="submit">Submit Beat</button>
-  <p id="status"></p>
+  <label for="genre">Genre:</label>
+  <select id="genre" required>
+
+    <label for="moodTags">Mood Tags (comma separated)</label>
+<input type="text" id="moodTags" name="moodTags" placeholder="e.g. Happy, Energetic, Chill" />
+
+    <option value="">Select Genre</option>
+    <option value="Afrobeat">Afrobeat</option>
+    <option value="Hip Hop">Hip Hop</option>
+    <option value="R&B">R&B</option>
+    <option value="Drill">Drill</option>
+    <option value="Trap">Trap</option>
+    <option value="Lo-Fi">Lo-Fi</option>
+    <option value="Rap">Rap</option>
+    <option value="Dancehall">Dancehall</option>
+    <option value="Amapiano">Amapiano</option>
+  </select>
+
+  <button type="submit">Upload Beat</button>
 </form>
+
 
 
 

@@ -1,0 +1,164 @@
+:root {
+  --primary-red: #d90429;
+  --dark-red: #9a031e;
+  --bg-light: #f9f9f9;
+  --card-bg: white;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, var(--dark-red), var(--primary-red));
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease;
+}
+
+.auth-wrapper {
+  width: 100%;
+  max-width: 400px;
+  padding: 1rem;
+}
+
+.signup-card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.8s ease forwards;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.signup-card h1 {
+  text-align: center;
+  color: var(--dark-red);
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.signup-card h1 span {
+  color: var(--primary-red);
+}
+
+.signup-card p {
+  text-align: center;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.9rem;
+  margin-bottom: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: var(--primary-red);
+  background: #fef4f5;
+  outline: none;
+}
+
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  display: none;
+}
+
+.success-message {
+  color: green;
+  text-align: center;
+  font-weight: 500;
+  display: none;
+  margin-bottom: 1rem;
+}
+
+button {
+  width: 100%;
+  padding: 0.85rem;
+  background: var(--primary-red);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: var(--dark-red);
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.login-link a {
+  color: var(--primary-red);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+  color: var(--dark-red);
+}
+
+@media screen and (max-width: 480px) {
+  .signup-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .signup-card h1 {
+    font-size: 1.5rem;
+  }
+}
+.username-feedback {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+  color: #555;
+}
+
+.username-feedback.valid {
+  color: green;
+}
+
+.username-feedback.invalid {
+  color: red;
+}
+.username-preview {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  color: #666;
+  font-style: italic;
+  display: none;
+}

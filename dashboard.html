@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - MusicianIsland</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <img id="userImage" src="assets/default-avatar.png" alt="User" class="user-avatar" />
+      <div class="user-info">
+        <h2 id="username">Username</h2>
+        <p id="userEmail">user@example.com</p>
+      </div>
+    </header>
+
+    <!-- Orders -->
+    <section class="orders-section">
+      <h3>Your Purchases</h3>
+      <div id="ordersList" class="orders-list">
+        <p class="empty-state">Loading your beats...</p>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>

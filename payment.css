@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff;
+  color: #222;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  background: #fafafa;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #c0392b;
+  text-align: center;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.payment-card-wrapper {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.payment-card {
+  border-radius: 12px;
+  flex: 1;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s;
+  background: rgb(18, 168, 227);
+}
+
+.payment-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.payment-card span {
+  display: block;
+  font-weight: bold;
+  color: #444;
+}
+
+.payment-card.selected {
+  border-color: #e74c3c;
+  background: #ffecec;
+  transform: scale(1.03);
+}
+
+input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.checkout-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.checkout-footer p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  background: #e74c3c;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #c0392b;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Slide Transitions */
+.fade-section {
+  display: none;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.fade-section.active {
+  display: block;
+  opacity: 1;
+}

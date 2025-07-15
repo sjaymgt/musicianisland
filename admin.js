@@ -24,6 +24,7 @@ document.getElementById("uploadForm").addEventListener("submit", async (e) => {
   const price = parseFloat(document.getElementById("price").value);
   const beatUrl = document.getElementById("beatUrl").value.trim();
   const imageUrl = document.getElementById("imageUrl").value.trim();
+  const genre = document.getElementById("genre").value;
 
   if (!beatUrl.startsWith("https://") || !imageUrl.startsWith("https://")) {
     status.textContent = "❌ Please provide valid HTTPS URLs from Vercel.";
@@ -33,12 +34,20 @@ document.getElementById("uploadForm").addEventListener("submit", async (e) => {
   try {
     status.textContent = "⏳ Uploading to Firestore...";
 
+    const moodTagsInput = document.getElementById('moodTags');
+const moodTags = moodTagsInput.value
+  .split(',')
+  .map(tag => tag.trim())
+  .filter(tag => tag.length > 0);
+
     await addDoc(collection(db, "Beats"), {
       title,
       producer,
       price,
       fileUrl: beatUrl,
       imageUrl: imageUrl,
+      genre,
+      moodTags: moodTags,
       createdAt: serverTimestamp()
     });
 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment | Musician Island</title>
+  <link rel="stylesheet" href="payment.css" />
+
+  <!-- Payment SDKs -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script src="https://checkout.flutterwave.com/v3.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- STEP 1: Choose Method -->
+    <div id="payment-selection" class="fade-section active">
+      <h2>💳 Payment Method</h2>
+
+      <div class="payment-options">
+        <div class="payment-card-wrapper">
+          <div class="payment-card" data-method="paystack">
+            <img src="https://assets.paystack.com/assets/img/hero/paystack-opengraph.png" alt="Paystack" />
+          </div>
+        </div>
+        <input type="email" id="emailInput" placeholder="Enter your email" required />
+        <div class="checkout-footer">
+          <p>Total: <span id="paymentTotal">0</span></p>
+          <button id="continueBtn" disabled>Continue</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: Launch Platform -->
+    <div id="platform-payment-form" class="fade-section">
+      <h2>💵 Confirm Payment</h2>
+      <p id="selectedPlatformLabel">Using:</p>
+      <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+      <p><strong>Total:</strong> ₦<span id="finalAmount"></span></p>
+      <button id="payNowBtn">Pay Now</button>
+    </div>
+  </div>
+
+  <script type="module" src="payment.js"></script>
+</body>
+</html>

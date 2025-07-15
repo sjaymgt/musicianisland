@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | BitFidelity</title>
+  <link rel="stylesheet" href="signup.css" />
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="signup-card">
+      <h1>Welcome to <span>MusicianIsland</span></h1>
+      <p>Create your account to get started</p>
+
+      <div class="success-message" id="successMessage">Signup successful! Redirecting...</div>
+
+      <!-- Insert this input ABOVE the email input -->
+        <input type="text" id="username" placeholder="Username" />
+        <div class="error" id="usernameError">Username must be 3+ characters and contain only letters, numbers, or underscores</div>
+        <span id="usernameFeedback" class="username-feedback"></span>
+
+      <input type="email" id="email" placeholder="Email address" />
+      <div class="error" id="emailError">Please enter a valid email</div>
+
+      <input type="password" id="password" placeholder="Password" />
+      <div class="error" id="passwordError">Password must be at least 6 characters</div>
+
+      <input type="password" id="confirmPassword" placeholder="Confirm password" />
+      <div class="error" id="confirmError">Passwords do not match</div>
+
+      <button id="signupBtn">Create Account</button>
+
+      <p class="login-link">Already a member? <a href="login.html">Sign in</a></p>
+    </div>
+  </div>
+
+  <script type="module" src="signup.js"></script>
+</body>
+</html>
