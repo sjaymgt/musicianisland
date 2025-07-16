@@ -101,6 +101,7 @@ body {
 
 .userAvatar{
   transition: all 0.3s ease;
+  background: #eee;
 }
 
 .userAvatar:hover {

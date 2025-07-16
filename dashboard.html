@@ -3,28 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard - MusicianIsland</title>
+  <title>🎧 Dashboard | Musician Island</title>
   <link rel="stylesheet" href="dashboard.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="dashboard-container">
-    <!-- Header -->
-    <header class="dashboard-header">
-      <img id="userImage" src="assets/default-avatar.png" alt="User" class="user-avatar" />
-      <div class="user-info">
-        <h2 id="username">Username</h2>
-        <p id="userEmail">user@example.com</p>
+  <section class="dashboard-container">
+    
+    <!-- 🔴 Header / Profile -->
+    <div class="profile-section">
+      <img id="userAvatar" src="https://i.pinimg.com/736x/9f/16/72/9f1672710cba6bcb0dfd93201c6d4c00.jpg" class="profile-avatar" />
+      <!-- 🖊️ Edit Icon Overlay -->
+<button id="editAvatarBtn" class="edit-avatar-btn">✏️</button>
+      <div class="profile-details">
+        <h1 id="username">......</h1>
+        <p id="userEmail">.....</p>
       </div>
-    </header>
+    </div>
 
-    <!-- Orders -->
-    <section class="orders-section">
-      <h3>Your Purchases</h3>
-      <div id="ordersList" class="orders-list">
-        <p class="empty-state">Loading your beats...</p>
-      </div>
-    </section>
+    <!-- 🧭 Tabs -->
+    <div class="dashboard-tabs">
+      <button class="tab-btn active" data-tab="orders">Orders</button>
+      <button class="tab-btn" data-tab="cyber">Cyber-Projects</button>
+      <button class="tab-btn" data-tab="connections">Collaborations</button>
+      <button class="tab-btn" data-tab="artistry">Artistry</button>
+    </div>
+
+    <!-- 🔎 Search & Filter -->
+    <div class="orders-filters">
+  <input type="text" id="orderSearch" placeholder="Search by title..." />
+  <select id="monthFilter">
+    <option value="">Month</option>
+    <option value="0">January</option>
+    <option value="1">February</option>
+    <option value="2">March</option>
+    <option value="3">April</option>
+    <option value="4">May</option>
+    <option value="5">June</option>
+    <option value="6">July</option>
+    <option value="7">August</option>
+    <option value="8">September</option>
+    <option value="9">October</option>
+    <option value="10">November</option>
+    <option value="11">December</option>
+  </select>
+  <select id="yearFilter"></select>
+</div>
+
+
+    <!-- 📦 Tab Contents -->
+    <div class="tab-content active" id="orders">
+      <table class="orders-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Preview</th>
+            <th>Price</th>
+            <th>Size</th>
+            <th>Download</th>
+            <th>Ref ID</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="ordersList"></tbody>
+      </table>
+    </div>
+
+    <div class="tab-content" id="cyber">
+      <p class="tab-placeholder">🚧 Cyber Projects tab coming soon.</p>
+    </div>
+
+    <div class="tab-content" id="connections">
+      <p class="tab-placeholder">📡 Collabs tab coming soon.</p>
+    </div>
+
+    <div class="tab-content" id="artistry">
+      <p class="tab-placeholder">🎨 Artistry tab coming soon.</p>
+    </div>
+    
+  </section>
+
+<!-- 🌟 Avatar Modal -->
+<div id="avatarModal" class="avatar-modal hide">
+  <div class="avatar-modal-content">
+    <button id="closeAvatarModal" class="close-avatar-modal">×</button>
+    <h3>Choose Your Avatar</h3>
+    <div id="avatarGrid" class="avatar-grid"></div>
+    <button id="saveAvatarBtn" class="save-avatar-btn">Save Avatar</button>
   </div>
+</div>
+
+
+
 
   <script type="module" src="dashboard.js"></script>
 </body>
