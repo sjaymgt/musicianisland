@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
-  getAuth,
+  getAuth, signOut,
   onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
@@ -258,7 +258,8 @@ function populateAnimeAvatars() {
 
 // ✅ Save Selected Avatar
 confirmBtn.addEventListener("click", async () => {
-  if (!selectedAvatarURL || !currentUserId) return alert("Select an avatar first.");
+  if (!selectedAvatarURL || !currentUserId) return showToast("Please select an avatar first.", "error");
+
   confirmBtn.disabled = true;
   confirmBtn.textContent = "Saving Image...";
 
@@ -266,9 +267,11 @@ confirmBtn.addEventListener("click", async () => {
     await updateDoc(doc(db, "Users", currentUserId), { image: selectedAvatarURL });
     document.getElementById("userAvatar").src = selectedAvatarURL;
     closeModal();
-    alert("Avatar updated!");
+    showToast("Avatar updated successfully!", "success");
+
   } catch (err) {
-    alert("Failed to save avatar");
+    showToast("Failed to save avatar.", "error");
+
     console.error(err);
   } finally {
     confirmBtn.disabled = false;
@@ -289,3 +292,25 @@ function closeModal() {
   modal.style.display = "none";
   document.body.style.overflow = '';
 }
+
+function showToast(message, type = "default") {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.className = `toast show ${type}`;
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+}
+
+
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  signOut(auth).then(() => {
+    showToast("Logged out successfully!", "success");
+    setTimeout(() => {
+      location.href = "index.html";
+    }, 1000);
+  }).catch((error) => {
+    console.error("Logout error:", error);
+    showToast("Failed to logout. Try again.", "error");
+  });
+});

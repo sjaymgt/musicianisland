@@ -114,6 +114,25 @@ function hideCartDrawer() {
 }
 
 
+
+
+document.querySelectorAll('nav.nav a').forEach(tab => {
+  tab.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    // Activate tab link
+    document.querySelectorAll('nav.nav a').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    // Show corresponding tab content
+    const tabName = tab.getAttribute('data-tab');
+    document.querySelectorAll('.tab-section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(`tab-${tabName}`).classList.add('active');
+  });
+});
+
+
+
 // Render cart items
 function renderCartDrawer() {
   const cartItemsContainer = document.getElementById("cart-items");
@@ -465,3 +484,58 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
+
+
+
+const packsGrid = document.getElementById("packsGrid");
+
+async function fetchFileSize(url) {
+  try {
+    const response = await fetch(url, { method: "HEAD" });
+    const sizeBytes = response.headers.get("Content-Length");
+    return (sizeBytes / (1024 * 1024)).toFixed(2) + " MB";
+  } catch (e) {
+    console.error("Failed to fetch size:", e);
+    return "Unknown";
+  }
+}
+
+function isRecentUpload(timestamp) {
+  const uploadedDate = timestamp?.toDate?.();
+  if (!uploadedDate) return false;
+
+  const sevenDaysAgo = new Date();
+  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+
+  return uploadedDate > sevenDaysAgo;
+}
+
+
+async function loadPacks() {
+  const querySnapshot = await getDocs(collection(db, "Packs"));
+  packsGrid.innerHTML = "";
+
+  for (const doc of querySnapshot.docs) {
+    const { name, imageUrl, fileUrl, uploadedAt } = doc.data();
+    const size = await fetchFileSize(fileUrl);
+    const isNew = isRecentUpload(uploadedAt);
+
+    const card = document.createElement("div");
+    card.className = "pack-card";
+
+    card.innerHTML = `
+      <img src="${imageUrl}" alt="${name}" class="pack-image"/>
+      <div class="pack-info">
+        <h3 class="pack-title">${name}</h3>
+        <p class="pack-size">${size}</p>
+        ${isNew ? `<span class="badge">New Batch</span>` : ""}
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    `;
+
+    packsGrid.appendChild(card);
+  }
+}
+
+loadPacks();

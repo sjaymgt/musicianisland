@@ -25,11 +25,14 @@
         </div>
 
         <nav class="nav" id="mobile-nav">
-          <a href="#">Beats</a>
-          <a href="#">Licenses</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
-        </nav>
+  <a href="#" data-tab="beats" class="active">Beats</a>
+  <a href="#" data-tab="packs">Packs & Bundles</a>
+  <a href="#" data-tab="vsts">Vsts</a>
+  <a href="#" data-tab="cyber">Cyber-Project</a>
+  <a href="#" data-tab="collab">Collaboration</a>
+  <a href="#" data-tab="pr">PR/BR/MGT</a>
+</nav>
+
 
         <div class="right-header">
         <div class="actions">
@@ -47,7 +50,7 @@ onclick="window.location.href='dashboard.html'">
   <!-- 🎧 Storefront Section -->
   <section id="storefront" class="storefront">
     <div class="container-fluid">
-      <div class="section-title">🔥 Hottest & Doppest Beats</div>
+      
 
       <!-- 🔍 Sort & Filter -->
       <div class="store-controls">
@@ -74,12 +77,44 @@ onclick="window.location.href='dashboard.html'">
         </div>
       </div>
 
-      <!-- 🎵 Beats Grid -->
-      <div class="beat-grid" id="beat-grid">
-        <!-- Beats will be dynamically loaded here -->
+   
       </div>
     </div>
   </section>
+
+
+  <section class="tab-section active" id="tab-beats">
+  <div class="section-title">🔥 Hottest & Doppest Beats</div>
+  <div class="beat-grid" id="beat-grid"></div>
+</section>
+
+<section class="tab-section" id="tab-packs">
+  <div class="section-title">📦 Packs & Bundles</div>
+  <div id="packsGrid" class="packs-grid"></div>
+</section>
+
+<section class="tab-section" id="tab-vsts">
+  <div class="section-title">🎹 VSTs</div>
+  <p>Coming soon or dynamically load from Firestore...</p>
+</section>
+
+<section class="tab-section" id="tab-cyber">
+  <div class="section-title">💻 Cyber-Project</div>
+  <p>Post or showcase collabs, work, virtual music experiences.</p>
+</section>
+
+<section class="tab-section" id="tab-collab">
+  <div class="section-title">🤝 Collaborations</div>
+  <p>Find artists or producers to collaborate with.</p>
+</section>
+
+<section class="tab-section" id="tab-pr">
+  <div class="section-title">📣 PR / BR / Management</div>
+  <p>Submit music, get reviewed, branding resources, and more.</p>
+</section>
+
+
+
 
 <!-- 🛒 Cart Drawer -->
 <div id="cart-drawer" class="cart-drawer hidden">

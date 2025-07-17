@@ -49,6 +49,21 @@ html, body {
   opacity: 0.95;
 }
 
+
+@media (max-width: 768px) {
+    .profile-avatar {
+        width: 70px;
+  height: 70px;
+    }
+
+    .profile-details h1 {
+  font-size: 1.2rem;
+}
+.profile-details p {
+  font-size: 0.7rem;
+}
+}
+
 /* 🔁 Tabs */
 .dashboard-tabs {
   display: flex;
@@ -241,6 +256,7 @@ td[data-label="Ref ID"] {
   display: none;
   align-items: center;
   justify-content: center;
+  color: #222;
   z-index: 9999;
 }
 
@@ -248,9 +264,11 @@ td[data-label="Ref ID"] {
   display: flex;
 }
 
+
+
 .avatar-modal-content {
-  background: #222;
-  padding: 24px;
+  background: #fff;
+  padding: 10px;
   border-radius: 12px;
   max-width: 700px;
   width: 90%;
@@ -259,6 +277,8 @@ td[data-label="Ref ID"] {
   position: relative;
   box-shadow: 0 8px 30px rgba(0,0,0,0.2);
 }
+
+
 
 .close-avatar-modal {
   position: absolute;
@@ -278,16 +298,13 @@ td[data-label="Ref ID"] {
   margin-top: 20px;
 }
 
-.user-avatar-choice {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin: 10px;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: transform 0.2s, border-color 0.2s;
-  position: relative;
+@media (max-width: 768px) {
+    .avatar-modal-content {
+        width: 70%;
+    }
 }
+
+
 
 .user-avatar-choice:hover {
   transform: scale(1.05);
@@ -323,12 +340,13 @@ td[data-label="Ref ID"] {
 }
 
 .user-avatar-choice {
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   cursor: pointer;
+  background: #eee;
   transition: transform 0.2s, border-color 0.2s;
-  border: 3px solid transparent;
+  border: 2px solid #ddd;
 }
 
 .user-avatar-choice:hover {
@@ -369,4 +387,71 @@ td[data-label="Ref ID"] {
   border: none;
   color: #c00;
   cursor: pointer;
+}
+
+
+
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #c00;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  font-size: 14px;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast.success {
+  background: #28a745;
+}
+
+.toast.error {
+  background: #e74c3c;
+}
+@media (max-width: 768px) {
+    .toast {
+        font-size: 12px;
+    }
+}
+
+.logout-btn {
+  margin-top: 10px;
+  background-color: #222;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 200;
+  transition: background 0.3s;
+  display: inline-block;
+  position: absolute;
+  right: 20px;
+  top: 80px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #fff;
+  color: #9e0000;
+}
+
+@media (max-width: 768px) {
+    .logout-btn {
+        top: 65px;
+        font-size: 0.6rem;
+    }
 }
